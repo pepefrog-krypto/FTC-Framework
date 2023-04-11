@@ -1,5 +1,7 @@
 package org.firstinspires.ftc.teamcode.Movement;
 
+import com.qualcomm.robotcore.hardware.DcMotor;
+
 import org.firstinspires.ftc.teamcode.MainClasses.RobotHardware;
 
 public class MecanumDrive {
@@ -21,5 +23,12 @@ public class MecanumDrive {
         robot.motorFrontRight.setPower(frontRightPower);
         robot.motorBackLeft.setPower(backLeftPower);
         robot.motorBackRight.setPower(backRightPower);
+
+        //esto es opcional(si la potencia de las ruedas es igual a cero los motores oponen resistecia al movimiento externo)
+        robot.motorBackRight.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+        robot.motorBackLeft.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+        robot.motorFrontRight.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+        robot.motorFrontLeft.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+
     }
 }
